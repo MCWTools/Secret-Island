@@ -1,10 +1,16 @@
-# Secret Island
+# Secret Island 3D
 
-Static site (no build step). Deploy on Vercel: drag the folder into vercel.com/new, or run `vercel` in this folder.
-Framework preset: Other. Output directory: leave empty (root).
+Floating island 3D first-person game, 42 hidden achievements. Pure static site (Three.js bundled in /vendor), no build step.
 
-Files: index.html, style.css, game.js, vercel.json
+## Deploy (Vercel)
+Drop the folder in a Vercel project (or `vercel` CLI). No settings needed.
+Local: `python3 -m http.server` then open http://localhost:8000
 
-Controls
-- PC: WASD/arrows move, J attack, Space jump, E interact, P phone, L look under island, Esc pause
-- Mobile: left joystick, buttons on the right (attack / jump / look), tap action buttons at the bottom, phone icon top-right
+## Controls
+PC: click to lock mouse · WASD move · Shift run · Space jump · E interact · J/click attack · P phone · L look under island · Esc pause
+Mobile: left joystick, drag right side to look, buttons for attack/jump/look.
+
+## Custom zombie model
+The zombie is built procedurally (articulated 3D model + generated textures). To use your own, put a rigged-or-static `zombie.glb` into `assets/` — it is picked up automatically.
+
+Progress is saved in localStorage (key `secretIsland3d.v1`). "Clear all achievements" waits 5s before confirming.
