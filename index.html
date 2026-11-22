@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Secret Island</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="stageWrap"><div id="stage"><canvas id="cv" width="1440" height="810"></canvas></div></div>
+
+<!-- Achievement freeze popup -->
+<div id="popup">
+  <div id="pcard" class="acard">
+    <div class="am">ACHIEVEMENT MADE!</div>
+    <div class="arow"><div class="aic" id="pIc"></div><div class="atx"><div class="an" id="pName"></div><div class="ar" id="pRar"></div></div></div>
+    <div class="ad" id="pDesc"></div>
+  </div>
+  <div id="pHint">Tap the card to continue</div>
+  <div id="pBtns">
+    <button class="btn big" id="pCont">Continue ▶</button>
+    <button class="btn big" id="pRest">↻ Restart</button>
+  </div>
+</div>
+
+<!-- HUD -->
+<div id="ui">
+  <div id="topbar">
+    <button class="btn" id="bPause" title="Pause (Esc)">⏸</button>
+    <button class="btn" id="bAch" title="Achievements">🏆 <span id="achCount">0/42</span></button>
+    <div id="hearts"></div>
+    <div class="grow"></div>
+    <button class="btn" id="bPhone" title="Phone (P)">📱<span id="badge" class="badge"></span></button>
+  </div>
+  <div id="inv"></div>
+  <div id="banner"></div>
+  <div id="actions"></div>
+  <div id="hint">WASD / arrows move · J attack · Space jump · E interact · P phone · L look down · Esc pause</div>
+  <div id="touch">
+    <div id="joy"><div id="jknob"></div></div>
+    <div id="tbtns">
+      <button class="tb" id="bLook">👁</button>
+      <button class="tb" id="bJump">⤒</button>
+      <button class="tb atk" id="bAtk">⚔️</button>
+    </div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<!-- Phone -->
+<div class="modal" id="phoneM">
+  <div id="phone">
+    <div id="pbar"><button id="pback">‹</button><span id="ptitle">Phone</span><button id="pclose">✕</button></div>
+    <div id="pbody"></div>
+  </div>
+</div>
+
+<!-- Pause -->
+<div class="modal" id="pauseM">
+  <div class="mbox small">
+    <h2>Paused</h2>
+    <button class="btn big full" id="mResume">▶ Resume</button>
+    <button class="btn big full" id="mRestart">↻ Restart</button>
+    <button class="btn big full" id="mAch">🏆 Achievements</button>
+    <button class="btn big full" id="mSound">🔊 Sound: On</button>
+    <button class="btn big full danger" id="mClear">🗑 Clear all achievements</button>
+  </div>
+</div>
+
+<!-- Achievements -->
+<div class="modal" id="achM">
+  <div class="mbox wide">
+    <div class="mhead">
+      <h2>Achievements <span id="achSum"></span></h2>
+      <div class="mh-r">
+        <button class="btn danger" id="achClear">🗑 Clear all</button>
+        <button class="btn" id="achClose">✕</button>
+      </div>
+    </div>
+    <div id="achBody"></div>
+  </div>
+</div>
+
+<!-- Clear confirm -->
+<div class="modal" id="clearM">
+  <div class="mbox small">
+    <h2>Clear all achievements?</h2>
+    <p>This deletes every achievement and all lifetime stats. It cannot be undone.</p>
+    <button class="btn big full danger" id="clearOk" disabled>Confirm (5)</button>
+    <button class="btn big full" id="clearNo">Cancel</button>
+  </div>
+</div>
+
+<!-- Ending -->
+<div class="modal" id="endM">
+  <div class="mbox small center">
+    <div id="endIcon"></div>
+    <h1 id="endTitle"></h1>
+    <p id="endSub"></p>
+    <button class="btn big full" id="endRestart">↻ Restart</button>
+    <button class="btn full" id="endAch">🏆 Achievements</button>
+  </div>
+</div>
+
+<div id="tip"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
